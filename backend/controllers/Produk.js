@@ -1,0 +1,1 @@
+import Produk from "../models/ProdukModel.js";

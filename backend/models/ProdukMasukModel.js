@@ -1,12 +1,12 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database";
 
+import Produk from "./ProdukModel";
+
 const {DataTypes} = Sequelize;
 
-import Produk from "./Produk";
-
-const ProdukKeluar = db.define('produk_keluar', {}, {
-    id_produkKeluar: {
+const ProdukMasuk = db.define('produk_masuk', {}, {
+    id_produkMasuk: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
@@ -73,8 +73,7 @@ const ProdukKeluar = db.define('produk_keluar', {}, {
     freezeTableName: true
 });
 
-Produk.hasMany(ProdukKeluar);
-ProdukKeluar.belongsTo(Produk, {foreignKey: 'id_produkKeluar'})
+Produk.hasMany(ProdukMasuk);
+ProdukMasuk.belongsTo(Produk, {foreignKey: 'id_produkMasuk'})
 
-
-export default ProdukKeluar;
+export default ProdukMasuk;
